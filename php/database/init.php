@@ -43,5 +43,7 @@ foreach($country_IDs as $cID){
 }
 
 $conn_init->close();
+
+echo "Initialization completed.<br>";
 exit();
 ?>

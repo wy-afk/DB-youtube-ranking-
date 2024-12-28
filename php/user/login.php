@@ -1,8 +1,19 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Trending Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
 
 <body>
+<?php
+	session_start(); 
+	include "../database/connect.php";
 
-	<?php
 	$stmt = $conn->stmt_init();
 
 	// Username & password input. Replace $_POST with $_GET if the form method in html is set to "GET"
@@ -24,20 +35,22 @@
 	// If the input username is not found in the database(result size = 0), then aborts.
 	if (!$result || $result->num_rows != 1) {
 		echo "Account not found.<br>";
-		header("Location: ./login.html");
+		header("Location: ../../html/login.html");
 		exit();
 	}
 
 	// Check if the password matches the query result.
+	$redirect = "";
 	if ($result->fetch_all(MYSQLI_ASSOC)[0]["pwd"] == $hashed_password) {
-		header("Location: ./analyze.html");
+		$redirect = "../../html/analyze.html";
 	}
-
-
+	else{
+		echo "Username or password incorrect.<br>";
+		$redirect = "../../html/login.html";
+	}
+	
 	$result->close();
-	exit();
-	?>
+	header("Location: $redirect");
+?>
 
 </body>
-
-</html>

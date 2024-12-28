@@ -1,0 +1,28 @@
+h1 {
+	color: #694846;
+	text-align: center;
+}
+h2 {
+	color: #694846;
+}
+
+p {
+	font-family: verdana;
+	font-size: 20px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #f5d7d5;
+	margin: 0;
+}
+
+.main{
+	margin: 50px;
+}
+.footer {
+	height: 50px;
+}

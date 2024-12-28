@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Trending Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <img id="logo" src="logo.png" alt="Website Logo">
+        <h1>YouTube Trending Analytics</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#signup">Signup</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#update">Update</a></li>
+            <li><a href="#analyze">Analyze</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="search">
+            <h2>Search Videos</h2>
+            <form onsubmit="searchVideo(); return false;">
+                <label for="search-term">Search:</label>
+                <input type="text" id="search-term" placeholder="Enter video name or keyword">
+
+                <button type="submit">Search</button>
+            </form>
+            <div id="search-results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 YouTube Trending Analytics. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>

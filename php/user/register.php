@@ -1,4 +1,5 @@
 <?php
+$stmt = $conn->stmt_init();
 
 // Username & password input.
 // TODO: Replace $_POST with $_GET if the form method in html is set to "GET"
@@ -20,6 +21,7 @@ $hashed_password = hash("sha256", $input_password);
 $sql = "INSERT INTO user (name, user_password) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $input_username, $hashed_password);
+
 $stmt->execute();
 
 exit();

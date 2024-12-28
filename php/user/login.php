@@ -1,4 +1,5 @@
 <?php
+$stmt = $conn->stmt_init();
 
 // Username & password input. Replace $_POST with $_GET if the form method in html is set to "GET"
 $input_username = $_POST["username"];
@@ -8,9 +9,10 @@ $input_password = $_POST["password"];
 $hashed_password = hash("sha256", $input_password);
 
 // Query with stmt sql command.
-$sql = "SELECT user.user_password AS pwd FROM user WHERE user.username = (?)";
+$sql = "SELECT user.user_password AS pwd FROM user WHERE user.username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $input_username);
+
 $stmt->execute();
 
 $result = $stmt->get_result();

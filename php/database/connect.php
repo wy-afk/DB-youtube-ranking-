@@ -1,4 +1,5 @@
 <?php
+$stmt = $conn->stmt_init();
 
 $server_name = "localhost";
 $user_name = "root";

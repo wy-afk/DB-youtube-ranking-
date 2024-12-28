@@ -1,16 +1,14 @@
 <?php
-$stmt = $conn->stmt_init();
-
-$server_name = "localhost";
-$user_name = "root";
+$servername = "localhost";
+$username = "root";
 $password = "";
-$database = "final";
+$database = "youtube_trending_video";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-	echo "Connection failed: $conn->connect_error <br>";
+if (!$conn) {
+	echo "Connection failed.<br>";
 	exit();
 }
 

@@ -14,11 +14,15 @@ if(!$conn_init){
 }
 $conn_init->options(MYSQLI_OPT_LOCAL_INFILE, true);
 
+echo "MySQL connected.<br>";
+
 // Create database
 $conn_init->query("CREATE DATABASE $database");
 $conn_init->close();
 
 $conn_init = new mysqli($servername, $username, $password, $database);
+
+echo "Database created successfully.<br>";
 
 // Create tables
 $country_IDs = ["BR", "CA", "DE", "FR", "GB", "IN", "JP", "KR", "MX", "RU", "US"];
@@ -42,6 +46,8 @@ $conn_init->query("CREATE TABLE categories( name VARCHAR(50), category_id VARCHA
 $conn_init->query("CREATE TABLE countries( name VARCHAR(50), country_id VARCHAR(2), PRIMARY KEY (country_id) )");
 $conn_init->query("CREATE TABLE user( username VARCHAR(200), user_id int NOT NULL AUTO_INCREMENT, user_password VARCHAR(100), PRIMARY KEY (user_id) )");
 
+echo "Tables created successfully.<br>";
+
 // Load data
 $sql_fmt = [
 	"LOAD DATA LOCAL INFILE '",
@@ -53,6 +59,8 @@ foreach($country_IDs as $cID){
 	$sql = $sql_fmt[0] . $cID . $sql_fmt[1] . $cID . $sql_fmt[2];
 	$conn_init->query($sql);
 }
+
+echo "Dataset loaded successfully.<br>";
 
 $conn_init->close();
 

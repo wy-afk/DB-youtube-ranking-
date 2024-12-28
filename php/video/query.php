@@ -24,6 +24,8 @@ if(!$result){
 
 $videos = $result->fetch_all(MYSQLI_ASSOC);
 
+// TODO: further process of the fetched data.
+
 $result->close();
 exit();
 ?>

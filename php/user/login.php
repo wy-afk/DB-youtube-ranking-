@@ -1,5 +1,4 @@
 <?php
-	session_start(); 
 	include "../database/connect.php";
 
 	$stmt = $conn->stmt_init();

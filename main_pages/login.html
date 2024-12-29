@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Trending Analytics</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic SC">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -15,12 +16,12 @@
 
     <nav>
         <ul>
-            <li><a href="./login.html">Login</a></li>
-            <li><a href="./signup.html">Signup</a></li>
-            <li><a href="./search.html">Search</a></li>
-            <li><a href="./update.html">Update</a></li>
-            <li><a href="./analyze.html">Analyze</a></li>
-            <li><a href="./about.html">About</a></li>
+            <a href="./login.html">Login</a> | 
+            <a href="./signup.html">Signup</a> | 
+            <a href="./search.html">Search</a> | 
+            <a href="./update.html">Update</a> | 
+            <a href="./analyze.html">Analyze</a> | 
+            <a href="./about.html">About</a>
         </ul>
     </nav>
 
@@ -38,7 +39,7 @@
             </form>
         </section>
 
-        <p id="errmsg"></p>
+        <p id="errmsg" class="error"></p>
         <script defer>
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);

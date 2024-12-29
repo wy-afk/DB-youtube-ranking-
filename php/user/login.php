@@ -4,7 +4,7 @@
 
 	$stmt = $conn->stmt_init();
 
-	// Username & password input. Replace $_POST with $_GET if the form method in html is set to "GET"
+	// Username & password input.
 	$input_username = $_POST["username"];
 	$input_password = $_POST["password"];
 

@@ -5,7 +5,6 @@
     $stmt = $conn->stmt_init();
 
     // Username & password input.
-    // TODO: Replace $_POST with $_GET if the form method in main_pages is set to "GET"
     $input_username = $_POST["signup-username"];
     $input_password = $_POST["signup-password"];
 

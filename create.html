@@ -36,7 +36,8 @@
 
                 <label for="video-title">Title:</label>
                 <input type="text" id="video-title" name="video-title" placeholder="Enter video title">
-                <br><br>
+                <p>Please copy url directly from search box.</p>
+                <br>
 
                 <label for="view-count">View Count:</label>
                 <input type="number" id="view-count" name="view-count" placeholder="Enter view count">
@@ -109,6 +110,16 @@
 
             if(urlParams.has('err')){
                 document.getElementById("errmsg").innerHTML = "Error: Invalid video url.";
+            }
+        </script>
+
+        <p id="successmsg" class="success"></p>
+        <script defer>
+            const squeryString = window.location.search;
+            const surlParams = new URLSearchParams(squeryString);
+
+            if(urlParams.has('success')){
+                document.getElementById("successmsg").innerHTML = "Successfully added new video.";
             }
         </script>
     </main>

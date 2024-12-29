@@ -5,7 +5,7 @@
     $stmt = $conn->stmt_init();
 
     // Username & password input.
-    // TODO: Replace $_POST with $_GET if the form method in html is set to "GET"
+    // TODO: Replace $_POST with $_GET if the form method in main_pages is set to "GET"
     $input_username = $_POST["signup-username"];
     $input_password = $_POST["signup-password"];
 
@@ -13,10 +13,10 @@
     $redirect = "";
     $duplicate_check = $conn->query("SELECT * FROM user WHERE username = '$input_username'");
     if($duplicate_check->num_rows > 0){
-        $redirect = "../../html/signup.html";
+        $redirect = "../../main_pages/signup.html";
     }
     else{
-        $redirect = "../../html/login.html";
+        $redirect = "../../main_pages/login.html";
 
         // Password hashing.
         $hashed_password = hash("sha256", $input_password);

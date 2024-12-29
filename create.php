@@ -35,12 +35,9 @@
     $result = curl_exec($ch);
     curl_close($ch);
 
-    $valid = TRUE;
-    if($result[20] == '"') $valid = FALSE; // empty when video not found
-
-    // If video url not found, abort
-    if(!$valid){
-        header("Location: ../../main_pages/create.html?err=InvalidLink");
+    $errormsg = substr($result, 2, 5);
+    if($errormsg == "error"){
+        header("Location: ../../main_pages/create.html?err");
         exit();
     }
 

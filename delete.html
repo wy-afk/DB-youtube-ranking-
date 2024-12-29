@@ -28,9 +28,10 @@
     </nav>
 
     <main class="main">
-        <section id="create">
-            <h2>Add New Video</h2>
-            <form action="../php/video/create.php" method="POST">
+        <section id="delete">
+            <h2>Delete Video</h2>
+            <h3>Delete a video if it is no longer available online OAO</h3>
+            <form action="../php/video/delete.php" method="POST">
                 <label for="video-link">Video Link:</label>
                 <input type="url" id="video-link" name="video-link" placeholder="Enter video URL">
 
@@ -99,7 +100,7 @@
                 </select>
                 <br><br>
                 
-                <button type="submit" style="width: 150px;"> Create </button>
+                <button type="submit" style="width: 150px;"> Delete </button>
             </form>
         </section>
 
@@ -108,9 +109,17 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
 
-            if(urlParams.has('err')){
-                document.getElementById("errmsg").innerHTML = "Error: Invalid video url.";
+            if(!urlParams.has('err')){
+                errMsg = "";
             }
+            else if(urlParams.get('err') == "invalidlink"){
+                errMsg = "Error: Video still available online, unable to be deleted.";
+            }
+            else if(urlParams.get('err') == "notyt"){
+                errMsg = "Error: Please choose a link that is from YouTube.";
+            }
+
+            document.getElementById("errmsg").innerHTML = errMsg;
         </script>
 
         <p id="successmsg" class="success"></p>
@@ -119,7 +128,7 @@
             const surlParams = new URLSearchParams(squeryString);
 
             if(urlParams.has('success')){
-                document.getElementById("successmsg").innerHTML = "Successfully added new video.";
+                document.getElementById("successmsg").innerHTML = "Successfully deleted video.";
             }
         </script>
     </main>

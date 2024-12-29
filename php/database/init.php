@@ -166,7 +166,7 @@ $conn_init->query( // categories: category list
 
 echo("Hard-coded data import finished.<br>");
 
-// See if it releases som ram?
+// See if it releases some ram?
 $conn_init->close();
 $conn_init = new mysqli($servername, $username, $password, $database);
 

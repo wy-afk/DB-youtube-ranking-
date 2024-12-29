@@ -13,7 +13,7 @@
     $redirect = "";
     $duplicate_check = $conn->query("SELECT * FROM user WHERE username = '$input_username'");
     if($duplicate_check->num_rows > 0){
-        $redirect = "../../main_pages/signup.html";
+        $redirect = "../../main_pages/signup.html?err=UsernameExists";
     }
     else{
         $redirect = "../../main_pages/login.html";

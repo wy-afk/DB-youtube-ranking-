@@ -22,7 +22,7 @@
 
 	// If the input username is not found in the database(result size = 0), then aborts.
 	if (!$result || $result->num_rows != 1) {
-		header("Location: ../../main_pages/login.html");
+		header("Location: ../../main_pages/login.html?err=UserNotFound");
 		exit();
 	}
 
@@ -32,7 +32,7 @@
 		$redirect = "../../main_pages/analyze.html";
 	}
 	else{
-		$redirect = "../../main_pages/login.html";
+		$redirect = "../../main_pages/login.html?err=PasswordIncorrect";
 	}
 	
 	$result->close();

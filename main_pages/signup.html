@@ -38,7 +38,22 @@
             </form>
         </section>
 
-        
+        <p id="errmsg"></p>
+        <script defer>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            let errMsg = "";
+
+            if(!urlParams.has('err')){
+                errMsg = "";
+            }
+            else if(urlParams.get('err') == "UsernameExists"){
+                errMsg = "Error: Username already exists, try a different one.";
+            }
+            document.getElementById("errmsg").innerHTML = errMsg;
+        </script>
+
     </main>
 
     <footer class="footer">&copy; 2024 YouTube Trending Analytics. All rights reserved.</footer>

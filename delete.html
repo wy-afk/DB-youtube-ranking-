@@ -127,7 +127,7 @@
             const squeryString = window.location.search;
             const surlParams = new URLSearchParams(squeryString);
 
-            if(urlParams.has('success')){
+            if(surlParams.has('success')){
                 document.getElementById("successmsg").innerHTML = "Successfully deleted video.";
             }
         </script>

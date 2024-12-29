@@ -28,27 +28,34 @@
     </nav>
 
     <main class="main">
-        <section id="update">
-            <h2>Update Video Information</h2>
-            <form onsubmit="updateVideo(); return false;">
+        <section id="create">
+            <h2>Update Video</h2>
+            <h3>Update the view count of any video :D</h3>
+            <form action="../php/video/update.php" method="POST">
                 <label for="video-link">Video Link:</label>
-                <input type="url" id="video-link" placeholder="Enter video URL">
+                <input type="url" id="video-link" name="video-link" placeholder="Enter video URL">
 
                 <label for="video-title">Title:</label>
-                <input type="text" id="video-title" placeholder="Enter video title">
+                <input type="text" id="video-title" name="video-title" placeholder="Enter video title">
+                <p>Please copy url directly from search box.</p>
+                <br>
 
                 <label for="view-count">View Count:</label>
-                <input type="number" id="view-count" placeholder="Enter view count">
-
-                <label for="channel">Channel:</label>
-                <input type="text" id="channel" placeholder="Enter channel name">
-
-                <label for="current-date">Current Date:</label>
-                <input type="date" id="current-date">
-
-                <button type="submit">Update</button>
+                <input type="number" id="view-count" name="view-count" placeholder="Enter view count">
+                
+                <button type="submit" style="width: 150px;"> Create </button>
             </form>
         </section>
+
+        <p id="successmsg" class="success"></p>
+        <script defer>
+            const squeryString = window.location.search;
+            const surlParams = new URLSearchParams(squeryString);
+
+            if(surlParams.has('success')){
+                document.getElementById("successmsg").innerHTML = "Successfully updated video.";
+            }
+        </script>
     </main>
 
     <footer class="footer">&copy; 2024 YouTube Trending Analytics. All rights reserved.</footer>

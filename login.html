@@ -28,19 +28,41 @@
     </nav>
 
     <main class="main">
-        <section id="search">
-            <h2>Search Videos</h2>
-            <form action="./search.php" method="POST">
-                <label for="search-term">Search:</label>
-                <input type="text" id="search-term" placeholder="Enter video name or keyword">
+        <section id="login">
+            <h2>Login</h2>
+            <form action="../php/user/login.php" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username:">
 
-                <button type="submit">Search</button>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password:">
+
+                <button type="submit">Login</button>
             </form>
-            <div id="search-results"></div>
         </section>
+
+        <p id="errmsg" class="error"></p>
+        <script defer>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            let errMsg = "";
+
+            if(!urlParams.has('err')){
+                errMsg = "";
+            }
+            else if(urlParams.get('err') == "UserNotFound"){
+                errMsg = "Error: Username not found.";
+            }
+            else if(urlParams.get('err') == "PasswordIncorrect"){
+                errMsg = "Error: Username or password is incorrect.";
+            }
+            document.getElementById("errmsg").innerHTML = errMsg;
+        </script>
+
     </main>
 
     <footer class="footer">&copy; 2024 YouTube Trending Analytics. All rights reserved.</footer>
-    
+
 </body>
 </html>

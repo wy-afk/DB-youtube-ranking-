@@ -13,13 +13,6 @@ CREATE TABLE categories(
     PRIMARY KEY (category_id)
 );
 
-CREATE TABLE user(
-    username VARCHAR(200),
-    user_id int NOT NULL AUTO_INCREMENT,
-    user_password VARCHAR(100),
-    PRIMARY KEY (user_id)
-);
-
 CREATE TABLE BR_youtube_trending_data (
     video_id VARCHAR(200),
     title TEXT,
@@ -36,8 +29,8 @@ CREATE TABLE BR_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "BR",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -59,8 +52,8 @@ CREATE TABLE CA_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "CA",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -82,8 +75,8 @@ CREATE TABLE DE_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "DE",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -105,8 +98,8 @@ CREATE TABLE FR_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "FR",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -128,8 +121,8 @@ CREATE TABLE JP_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "JP",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -151,8 +144,8 @@ CREATE TABLE GB_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "GB",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -174,8 +167,8 @@ CREATE TABLE IN_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "IN",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -197,8 +190,8 @@ CREATE TABLE KR_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "KR",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -220,8 +213,8 @@ CREATE TABLE MX_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "MX",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -243,8 +236,8 @@ CREATE TABLE RU_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "RU",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -266,8 +259,8 @@ CREATE TABLE US_youtube_trending_data (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
-    country_id VARCHAR(2),
+    descript TEXT,
+    country_id VARCHAR(2) DEFAULT "US",
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
@@ -289,11 +282,18 @@ CREATE TABLE user_upload (
     thumbnail_link TEXT,
     comments_disabled BOOLEAN,
     ratings_disabled BOOLEAN,
-    description TEXT,
+    descript TEXT,
     country_id VARCHAR(2),
     PRIMARY KEY (video_id, trending_date),
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+CREATE TABLE user(
+    username VARCHAR(200),
+    user_id int NOT NULL AUTO_INCREMENT,
+    user_password VARCHAR(100),
+    PRIMARY KEY (user_id)
 );
 
 -- add admin
@@ -350,4 +350,4 @@ VALUES ('Howto & Style', 26),
 ('Action/Adventure', 32);
 
 SET global local_infile=true;
--- now open mysql with sudo mysql --local_infile=1 -u root
+-- now open mysql with sudo mysql --local_infile=1 -u root -p

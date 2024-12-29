@@ -1,7 +1,5 @@
 <?php
-	include "../database/connect.php";
-
-    $stmt = $conn->stmt_init();
+    include "../database/connect.php";
 
     // Country & category input.
     $country = $_POST["country"];

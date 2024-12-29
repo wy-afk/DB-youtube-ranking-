@@ -28,7 +28,7 @@
 	// Check if the password matches the query result.
 	$redirect = "";
 	if ($result->fetch_all(MYSQLI_ASSOC)[0]["pwd"] == $hashed_password) {
-		$redirect = "../../main_pages/analyze.html";
+		$redirect = "../../main_pages/analyze.php";
 	}
 	else{
 		$redirect = "../../main_pages/login.html?err=PasswordIncorrect";

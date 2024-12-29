@@ -1,6 +1,18 @@
 CREATE DATABASE youtube_trending_video;
 use youtube_trending_video;
 
+CREATE TABLE countries(
+    name VARCHAR(50),
+    country_id VARCHAR(2),
+    PRIMARY KEY (country_id)
+);
+
+CREATE TABLE categories(
+    name VARCHAR(50),
+    category_id int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (category_id)
+);
+
 CREATE TABLE BR_youtube_trending_data (
     video_id VARCHAR(200),
     title TEXT,
@@ -277,18 +289,6 @@ CREATE TABLE user_upload (
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
-CREATE TABLE countries(
-    name VARCHAR(50),
-    country_id VARCHAR(2),
-    PRIMARY KEY (country_id)
-);
-
-CREATE TABLE categories(
-    name VARCHAR(50),
-    category_id int NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (category_id)
-);
-
 CREATE TABLE user(
     username VARCHAR(200),
     user_id int NOT NULL AUTO_INCREMENT,
@@ -350,4 +350,4 @@ VALUES ('Howto & Style', 26),
 ('Action/Adventure', 32);
 
 SET global local_infile=true;
--- now open mysql with sudo mysql --local_infile=1 -u root
+-- now open mysql with sudo mysql --local_infile=1 -u root -p

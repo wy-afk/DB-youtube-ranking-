@@ -1,6 +1,25 @@
 CREATE DATABASE youtube_trending_video;
 use youtube_trending_video;
 
+CREATE TABLE countries(
+    country_name VARCHAR(50),
+    country_id VARCHAR(2),
+    PRIMARY KEY (country_id)
+);
+
+CREATE TABLE categories(
+    category_name VARCHAR(50),
+    category_id int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (category_id)
+);
+
+CREATE TABLE user(
+    username VARCHAR(200),
+    user_id int NOT NULL AUTO_INCREMENT,
+    user_password VARCHAR(100),
+    PRIMARY KEY (user_id)
+);
+
 CREATE TABLE BR_youtube_trending_data (
     video_id VARCHAR(200),
     title TEXT,
@@ -277,31 +296,12 @@ CREATE TABLE user_upload (
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
-CREATE TABLE countries(
-    name VARCHAR(50),
-    country_id VARCHAR(2),
-    PRIMARY KEY (country_id)
-);
-
-CREATE TABLE categories(
-    name VARCHAR(50),
-    category_id int NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (category_id)
-);
-
-CREATE TABLE user(
-    username VARCHAR(200),
-    user_id int NOT NULL AUTO_INCREMENT,
-    user_password VARCHAR(100),
-    PRIMARY KEY (user_id)
-);
-
 -- add admin
 INSERT INTO user (username, user_password)
 VALUES('admin', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
 
 -- initialize countries table
-INSERT INTO countries (name, country_id)
+INSERT INTO countries (country_name, country_id)
 VALUES ('United States', 'US'),
 ('Brazil', 'BR'),
 ('Canada', 'CA'),
@@ -315,7 +315,7 @@ VALUES ('United States', 'US'),
 ('Korea', 'KR');
 
 -- initialize categories table
-INSERT INTO categories (name, category_id)
+INSERT INTO categories (category_name, category_id)
 VALUES ('Howto & Style', 26),
 ('Music', 10),
 ('Film & Animation', 1),

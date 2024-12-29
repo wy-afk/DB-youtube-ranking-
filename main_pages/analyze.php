@@ -85,26 +85,21 @@
 			</form>
 
 			<div id="chart-container">
-				<!-- Placeholder for dynamic chart rendering -->
-				<!--
+				<!-- Placeholder for dynamic chart rendering
+
 					format:
 
-					<h3>1. <a href="video_link">[video_title]</a></h3>
-					<p>
-						<img id = "thumbnail" src="thumbnail.webp><br>
-					</p>
-					
-					<h3>2. <a href="video_link">[video_title]</a></h3>
-					<p>
-						<img id = "thumbnail" src="thumbnail.webp><br>
-					</p>
+					<h3>$cnt. <a href="https://youtu.be/$video_id">$titles</a></h3>
+                    <p>
+                        <img id = "thumbnail" src="$thumbnail_link"><br>
+                        published at $pubTime, $likecount likes.<br>
+                    </p>
 					...
 				-->
-				
-				<?php
-				include "../php/video/query.php";
-				?>
-			</div>
+                <?php
+                    include "../php/video/query.php";
+                ?>
+            </div>
 
 		</section>
 	</main>

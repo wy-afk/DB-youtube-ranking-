@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Trending Analytics</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee Hairline">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -28,7 +28,7 @@
     <main class="main">
         <section id="signup">
             <h2>Signup</h2>
-            <form action="../php/user/register.php" method="POST">
+            <form action="../php/user/signup.php" method="POST">
                 <label for="signup-username">Username:</label>
                 <input type="text" id="signup-username" placeholder="Choose a username">
 
@@ -51,6 +51,9 @@
             }
             else if(urlParams.get('err') == "UsernameExists"){
                 errMsg = "Error: Username already exists, try a different one.";
+            }
+            else if(urlParams.get('err') == "InputFailed"){
+                errMsg = "Error: Input Failed.";
             }
             document.getElementById("errmsg").innerHTML = errMsg;
         </script>

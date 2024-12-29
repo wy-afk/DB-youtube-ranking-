@@ -1,0 +1,63 @@
+h1 {
+	background-color: #f5d7d5;
+	color: #694846;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 900;
+	letter-spacing: 0px;
+}
+
+h2 {
+	font-size: 32px;
+	color: #694846;
+	font-weight: 900;
+}
+
+p {
+	font-family: "Bungee Hairline";
+	font-size: 20px;
+	
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #f5d7d5;
+	margin: 0;
+	font-family: "Bungee Hairline";
+	font-weight: 600;
+	letter-spacing: -2px;
+	word-spacing: 6px;
+	text-align: center;
+}
+
+
+nav {
+	border: 1px;
+	padding: 1px;
+	font-size: 20px;
+	background-color: #fef0ef;
+}
+
+.main{
+	margin: 20px;
+	padding: 10px;
+	font-size: 20px;
+	;
+}
+.error {
+	color: red;
+	font-size: 20px;
+}
+.success {
+	color: blue;
+	font-size: 20px;
+}
+.footer {
+	vertical-align: bottom;
+	vertical-align: text-bottom;
+	height: 50px;
+	font-size: 10px;
+}

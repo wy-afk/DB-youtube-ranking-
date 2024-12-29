@@ -66,35 +66,35 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 ROWS;
 
-UPDATE BR_youtube_trending_data
-SET country_id = 'BR';
+-- UPDATE BR_youtube_trending_data
+-- SET country_id = 'BR';
 
-UPDATE DE_youtube_trending_data
-SET country_id = 'DE';
+-- UPDATE DE_youtube_trending_data
+-- SET country_id = 'DE';
 
-UPDATE CA_youtube_trending_data
-SET country_id = 'CA';
+-- UPDATE CA_youtube_trending_data
+-- SET country_id = 'CA';
 
-UPDATE FR_youtube_trending_data
-SET country_id = 'FR';
+-- UPDATE FR_youtube_trending_data
+-- SET country_id = 'FR';
 
-UPDATE GB_youtube_trending_data
-SET country_id = 'GB';
+-- UPDATE GB_youtube_trending_data
+-- SET country_id = 'GB';
 
-UPDATE IN_youtube_trending_data
-SET country_id = 'IN';
+-- UPDATE IN_youtube_trending_data
+-- SET country_id = 'IN';
 
-UPDATE JP_youtube_trending_data
-SET country_id = 'JP';
+-- UPDATE JP_youtube_trending_data
+-- SET country_id = 'JP';
 
-UPDATE KR_youtube_trending_data
-SET country_id = 'KR';
+-- UPDATE KR_youtube_trending_data
+-- SET country_id = 'KR';
 
-UPDATE MX_youtube_trending_data
-SET country_id = 'MX';
+-- UPDATE MX_youtube_trending_data
+-- SET country_id = 'MX';
 
-UPDATE RU_youtube_trending_data
-SET country_id = 'RU';
+-- UPDATE RU_youtube_trending_data
+-- SET country_id = 'RU';
 
-UPDATE US_youtube_trending_data
-SET country_id = 'US';
+-- UPDATE US_youtube_trending_data
+-- SET country_id = 'US';

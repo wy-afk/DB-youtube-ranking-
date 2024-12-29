@@ -1,5 +1,5 @@
 <?php
-	include "../database/connect.php";
+	require $_SERVER['DOCUMENT_ROOT']."/php/database/connect.php";
 
 	$stmt = $conn->stmt_init();
 

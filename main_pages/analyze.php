@@ -29,7 +29,7 @@
 		<section id="visualization">
 			<h2>Trending Video Analysis</h2>
 
-			<form method="POST" action="./analyze.php">
+			<form action="./analyze.php", method="POST">
 				<label for="country">Select Country:</label>
 				<select id="country" name="country">
 					<option value="US">United States</option>
@@ -97,7 +97,7 @@
 					...
 				-->
                 <?php
-                    include "../php/video/query.php";
+                    require "../php/video/query.php";
                 ?>
             </div>
 

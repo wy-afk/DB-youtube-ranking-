@@ -1,28 +1,31 @@
 <?php
-$stmt = $conn->stmt_init();
+	session_start(); 
+	include "../database/connect.php";
 
-// Username & password input.
-// TODO: Replace $_POST with $_GET if the form method in html is set to "GET"
-$input_username = $_POST["username"];
-$input_password = $_POST["password"];
+    $stmt = $conn->stmt_init();
 
-// Check if the user already exists.
-$duplicate_check = $conn -> query("SELECT user.user_password AS pwd FROM user WHERE user.username = $input_username");
-if($duplicate_check->num_rows > 0){
-    echo "Username not avaliable.<br>";
-    exit();
-}
-$duplicate_check->close();
+    // Username & password input.
+    // TODO: Replace $_POST with $_GET if the form method in html is set to "GET"
+    $input_username = $_POST["signup-username"];
+    $input_password = $_POST["signup-password"];
 
-// Password hashing.
-$hashed_password = hash("sha256", $input_password);
+    // Check if the user already exists.
+    $redirect = "";
+    $duplicate_check = $conn->query("SELECT * FROM user WHERE username = '$input_username'");
+    if($duplicate_check->num_rows > 0){
+        $redirect = "../../html/signup.html";
+    }
+    else{
+        $redirect = "../../html/login.html";
 
-// Update database with stmt sql command.
-$sql = "INSERT INTO user (name, user_password) VALUES (?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $input_username, $hashed_password);
+        // Password hashing.
+        $hashed_password = hash("sha256", $input_password);
 
-$stmt->execute();
+        // Update database with stmt sql command.
+        $sql = "INSERT INTO user (username, user_password) VALUES ('$input_username', '$hashed_password')";
+        $conn->query($sql);
+    }
 
-exit();
+    $duplicate_check->close();
+    header("Location: $redirect");
 ?>

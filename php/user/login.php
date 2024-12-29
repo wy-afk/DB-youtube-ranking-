@@ -22,7 +22,6 @@
 
 	// If the input username is not found in the database(result size = 0), then aborts.
 	if (!$result || $result->num_rows != 1) {
-		echo "Account not found.<br>";
 		header("Location: ../../html/login.html");
 		exit();
 	}
@@ -33,7 +32,6 @@
 		$redirect = "../../html/analyze.html";
 	}
 	else{
-		echo "Username or password incorrect.<br>";
 		$redirect = "../../html/login.html";
 	}
 	

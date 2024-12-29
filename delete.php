@@ -48,13 +48,6 @@
         exit();
     }
 
-    // Get country id
-    $stmt -> prepare("SELECT country_id AS id FROM countries c WHERE c.country_name = ?");
-    $stmt -> bind_param("s", $country);
-    $stmt -> execute();
-    $stmt -> bind_result($country_id);
-    $stmt -> fetch();
-
     // Get category id
     $stmt = $conn->stmt_init();
     $stmt -> prepare("SELECT category_id AS id FROM categories c WHERE c.category_name = ?");

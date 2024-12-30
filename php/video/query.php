@@ -30,13 +30,14 @@
 	}
 	else{
 		$cnt = 1;
+		echo "<p id=\"errmsg\" class=\"error\">Found " . $result->num_rows . " results.<br></p>";
 		$videos = $result->fetch_all(MYSQLI_ASSOC);
 
 		foreach ($videos as $video) {
 			echo "<h3>" . $cnt . ". <a href=\"https://youtu.be/" . $video["video_id"] . "\">" . $video["title"] . "</a></h3>";
 			echo "<p>";
 			echo "<img id = \"thumbnail\" src=" . $video["thumbnail_link"] . "><br>";
-			echo "Published at " . $video["published_at"] . ", view count: " . $video["view_count"] . ", " . $video["likes"] . " likes<br>";
+			echo "Published at " . $video["published_at"] . ", " . $video["view_count"] . " views, " . $video["likes"] . " likes<br>";
 			echo "</p>";
 
 			$cnt++;

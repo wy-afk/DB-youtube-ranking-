@@ -1,9 +1,9 @@
 <?php
+$link = "https://www.youtube.com/watch?v=ddddddd";
 
 $api_url = "https://www.page2api.com/api/v1/scrape";
 $payload = [
   "api_key" => "0f0eaee359a056c60b2300732c13064810ca16c5",
-  "url" =>  "https://youtu.be/q5UzVBt1EOE?si=GB1ntS5UmavY3Txl",
   "real_browser" =>  true,
   "premium_proxy" =>  "us",
   "wait_for" =>  "like-button-view-model",
@@ -11,6 +11,7 @@ $payload = [
     "title" =>  "meta[name=title] >> content"
   ]
 ];
+$payload["url"] = $link;
 
 $postdata = json_encode($payload);
 $ch = curl_init($api_url);
@@ -21,7 +22,13 @@ curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
 $result = curl_exec($ch);
 curl_close($ch);
 
+echo $result, "<br>";
+
 $valid = TRUE;
-if($result[20] == '"') $valid = FALSE;
+$errmsg = substr($result, 2, 5);
+if($errmsg == "error") echo "failed to scrape";
+else{
+  echo "success";
+}
 
 ?>

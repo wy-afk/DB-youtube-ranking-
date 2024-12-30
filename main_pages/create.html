@@ -108,9 +108,17 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
 
-            if(urlParams.has('err')){
-                document.getElementById("errmsg").innerHTML = "Error: Invalid video url.";
+            if(!urlParams.has('err')){
+                errMsg = "";
             }
+            else if(urlParams.get('err') == "invalidlink"){
+                errMsg = "Error: link is invalid.";
+            }
+            else if(urlParams.get('err') == "notyt"){
+                errMsg = "Error: Please choose a link that is from YouTube.";
+            }
+
+            document.getElementById("errmsg").innerHTML = errMsg;
         </script>
 
         <p id="successmsg" class="success"></p>

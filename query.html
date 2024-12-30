@@ -15,7 +15,7 @@
 	</header>
 
 	<nav>
-    <ul>
+		<ul>
             <a href="./about.html"> About </a> | 
             <a href="./login.html"> Login </a> | 
             <a href="./signup.html"> Signup </a> | 
@@ -31,7 +31,7 @@
 		<section id="visualization">
 			<h2>Trending Video Analysis</h2>
 
-			<form action="./analyze.php", method="POST">
+			<form action="../php/video/query.php", method="POST">
 				<label for="country">Select Country:</label>
 				<select id="country" name="country">
 					<option value="US">United States</option>
@@ -97,7 +97,7 @@
                         published at $pubTime, $likecount likes.<br>
                     </p>
 					...
-				-->
+				 -->
                 <?php
                     require "../php/video/query.php";
                 ?>

@@ -1,0 +1,24 @@
+-- CREATE TABLE user_upload (
+--     video_id VARCHAR(200),
+--     title TEXT,
+--     published_at TIMESTAMP,
+--     channel_id VARCHAR(200),
+--     channel_title VARCHAR(200),
+--     category_id INT,
+--     trending_date TIMESTAMP,
+--     tags TEXT,
+--     view_count INT,
+--     likes INT,
+--     dislikes INT,
+--     comment_count INT,
+--     thumbnail_link TEXT,
+--     comments_disabled BOOLEAN,
+--     ratings_disabled BOOLEAN,
+--     describeXT,
+--     country_id VARCHAR(2),
+    -- PRIMARY KEY (video_id, trending_date),
+    -- FOREIGN KEY (country_id) REFERENCES countries(country_id),
+    -- FOREIGN KEY (category_id) REFERENCES categories(category_id)
+-- );
+
+INSERT INTO user_upload (video_id, title, channel_title, category_id, trending_date, view_count) VALUES ("d", "a", "d", "10", current_timestamp, 35);

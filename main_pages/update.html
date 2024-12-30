@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Trending Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee Hairline">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <img id="logo" src="logo.png" alt="Website Logo" width="100" height="75">
+        <h1>YouTube Trending Analytics</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <a href="./about.html"> About </a> | 
+            <a href="./login.html"> Login </a> | 
+            <a href="./signup.html"> Signup </a> | 
+            <a href="./search.php"> Search </a> | 
+            <a href="./update.html"> Update </a> | 
+            <a href="./analyze.php"> Analyze </a> | 
+            <a href="./create.html"> Create </a> |
+            <a href="./delete.html"> Delete </a>
+        </ul>
+    </nav>
+
+    <main class="main">
+        <section id="create">
+            <h2>Update Video</h2>
+            <h3>Update the view count of any video :D</h3>
+            <form action="../php/video/update.php" method="POST">
+                <label for="video-link">Video Link:</label>
+                <input type="url" id="video-link" name="video-link" placeholder="Enter video URL">
+
+                <label for="video-title">Title:</label>
+                <input type="text" id="video-title" name="video-title" placeholder="Enter video title">
+                <p>Please copy url directly from search box.</p>
+                <br>
+
+                <label for="view-count">View Count:</label>
+                <input type="number" id="view-count" name="view-count" placeholder="Enter view count">
+                
+                <button type="submit" style="width: 150px;"> Update </button>
+            </form>
+        </section>
+
+        <p id="successmsg" class="success"></p>
+        <script defer>
+            const squeryString = window.location.search;
+            const surlParams = new URLSearchParams(squeryString);
+
+            if(surlParams.has('success')){
+                document.getElementById("successmsg").innerHTML = "Successfully updated video.";
+            }
+        </script>
+    </main>
+
+    <footer class="footer">&copy; 2024 YouTube Trending Analytics. All rights reserved.</footer>
+    
+</body>
+</html>

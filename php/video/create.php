@@ -13,33 +13,40 @@
     $category = $_POST["category"];
     $video_id = substr($link, 32, 11);
 
+    // Check if link is from youtube
+    $youtube = substr($link, 12, 7);
+    if($youtube != "youtube"){
+        header("Location: ../../main_pages/create.html?err=notyt");
+        exit();
+    }
+
     // Check if link is valid
-    // $api_url = "https://www.page2api.com/api/v1/scrape";
-    // $payload = [
-    // "api_key" => "0f0eaee359a056c60b2300732c13064810ca16c5",
-    // "real_browser" =>  true,
-    // "premium_proxy" =>  "us",
-    // "wait_for" =>  "like-button-view-model",
-    // "parse" =>  [
-    //     "title" =>  "meta[name=title] >> content"
-    // ]
-    // ];
-    // $payload["url"] = $link;
+    $api_url = "https://www.page2api.com/api/v1/scrape";
+    $payload = [
+    "api_key" => "0f0eaee359a056c60b2300732c13064810ca16c5",
+    "real_browser" =>  true,
+    "premium_proxy" =>  "us",
+    "wait_for" =>  "like-button-view-model",
+    "parse" =>  [
+        "title" =>  "meta[name=title] >> content"
+    ]
+    ];
+    $payload["url"] = $link;
 
-    // $postdata = json_encode($payload);
-    // $ch = curl_init($api_url);
-    // curl_setopt($ch,CURLOPT_POST, true);
-    // curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
-    // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-    // curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-    // $result = curl_exec($ch);
-    // curl_close($ch);
+    $postdata = json_encode($payload);
+    $ch = curl_init($api_url);
+    curl_setopt($ch,CURLOPT_POST, true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    curl_close($ch);
 
-    // $errormsg = substr($result, 2, 5);
-    // if($errormsg == "error"){
-    //     header("Location: ../../main_pages/create.html?err");
-    //     exit();
-    // }
+    $errormsg = substr($result, 2, 5);
+    if($errormsg == "error"){
+        header("Location: ../../main_pages/create.html?err");
+        exit();
+    }
 
     // Get category id
     $stmt = $conn->stmt_init();
